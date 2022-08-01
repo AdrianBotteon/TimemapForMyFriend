@@ -1,0 +1,284 @@
+.event-card {
+  box-sizing: border-box;
+  border: 1px solid black;
+  margin: 0;
+  padding: 15px;
+  transition: 0.2 ease;
+  background: $midwhite;
+  opacity: 0.92;
+  color: $darkgrey;
+  list-style-type: none;
+  font-size: $large;
+  line-height: $xxlarge;
+  transition: background-color 0.4s;
+  text-align: left;
+  overflow-y: scroll;
+  height: 100%;
+  max-width: $card-width;
+
+  &:hover {
+    background: $lightwhite;
+    transition: background-color 0.4s;
+    // cursor: pointer;
+  }
+
+  h4 {
+    margin-bottom: 0;
+    margin-right: 5px;
+    text-transform: uppercase;
+    font-size: $small;
+    color: $darkwhite;
+    font-weight: 800;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+
+  .card-row,
+  .card-col,
+  .card-cell {
+    margin: 5px 3px 5px 0px;
+    &.m0 {
+      margin: 0;
+    }
+  }
+
+  .card-row,
+  .card-col {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .card-cell {
+      flex: 1;
+    }
+  }
+
+  .card-col {
+    flex-direction: column;
+  }
+
+  .card-source {
+    margin: 0;
+    padding: 2px 0;
+    border-radius: 3px;
+
+    .source-row {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      padding: 5px 10px;
+      border-left: 3px solid $darkgrey;
+      background: linear-gradient(to right, $darkgrey 50%, transparent 50%);
+      background-size: 200% 100%;
+      background-position: right bottom;
+
+      &:hover {
+        background-color: $darkgrey;
+        color: white;
+        cursor: pointer;
+
+        background-position: left bottom;
+        transition: all 1s ease-in;
+      }
+    }
+
+    .source-icon {
+      display: flex;
+      align-items: center;
+      font-size: 24px;
+      margin-right: 15px;
+    }
+
+    .source-type {
+      display: inline-block;
+      margin-right: 5px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+
+  .card-cell {
+    a {
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: $darkwhite;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    a.disabled {
+      color: $midgrey;
+      font-weight: normal;
+      cursor: default;
+    }
+  }
+
+  .card-bottomhalf {
+    transition: 0.4s ease;
+    height: auto;
+
+    &.folded {
+      transition: 0.4s ease;
+      height: 0;
+      overflow: hidden;
+    }
+  }
+
+  .card-toggle p {
+    text-align: center;
+    cursor: pointer;
+
+    .arrow-down {
+      display: inline-block;
+      transition: 0.2s ease;
+      border: solid $darkwhite;
+      border-width: 0 2px 2px 0;
+      padding: 3px;
+      transform: rotate(-135deg);
+      -webkit-transform: rotate(-135deg);
+
+      &.folded {
+        transition: 0.2s ease;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+      }
+    }
+
+    &:hover .arrow-down {
+      transition: 0.2s ease;
+      border: solid $darkgrey;
+      border-width: 0 2px 2px 0;
+    }
+  }
+
+  .filters {
+    width: 100%;
+    margin: 5px 0;
+    text-align: left;
+  }
+
+  .warning {
+    background: $red;
+    color: white;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+  }
+
+  .timestamp {
+    margin-top: 0;
+
+    .estimated-timestamp {
+      color: $midwhite;
+      margin-left: 5px;
+    }
+  }
+
+  .media {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+
+    .img-wrapper {
+      width: 100%;
+      display: flex;
+      img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+
+    video {
+      width: 100%;
+      padding-bottom: 10px;
+      user-select: none;
+      &:focus {
+        outline: 0 !important;
+      }
+    }
+
+    video::-webkit-media-controls-panel {
+      // remove Chrome's gradient
+      background-image: none !important;
+      filter: brightness(0.9);
+      display: flex;
+      align-self: flex-end;
+      // flex-basis: 35px;
+      background-color: rgba($red, 0.6);
+    }
+
+    /* Could Use thise as well for Individual Controls */
+    video::-webkit-media-controls-play-button {
+      align-self: center;
+    }
+
+    video::-webkit-media-controls-timeline {
+      display: none;
+    }
+  }
+
+  .category {
+    margin-bottom: 5px;
+
+    .color-category {
+      width: 12px;
+      height: 12px;
+      border-radius: 20px;
+      display: inline-block;
+      margin: 0 0 0 5px;
+    }
+
+    p {
+      text-align: right;
+      flex: 1;
+    }
+  }
+
+  .summary {
+    overflow: auto;
+    margin-top: 0;
+    border-bottom: none;
+    white-space: pre-line;
+  }
+
+  .filter {
+    display: inline-block;
+    margin: 0;
+    margin-right: 5px;
+  }
+
+  &.selected {
+    background: $offwhite;
+  }
+
+  .card-row {
+    border-color: darkgray;
+  }
+
+  .embedded {
+    width: calc(#{$card-width} - 50px) !important;
+  }
+
+  .source-hidden {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: calc(#{$card-width} - 35px);
+    border: 2px solid $midgrey;
+    min-height: 260px;
+    background-color: $darkgrey;
+    border-radius: 5px;
+    cursor: auto;
+    h4 {
+      color: white;
+    }
+  }
+}
