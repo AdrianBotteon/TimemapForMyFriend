@@ -401,14 +401,14 @@ class Dashboard extends React.Component {
             onToggle={actions.markNotificationsRead}
           />
         ) : null}
-        {features.USE_SEARCH && (
+        {/* {features.USE_SEARCH && ( */}
           <Search
             narrative={app.narrative}
             queryString={app.searchQuery}
             events={domain.events}
             onSearchRowClick={this.handleSelect}
           />
-        )}
+        {/* )} */}
         {app.source ? (
           <MediaOverlay
             source={app.source}
