@@ -1,6 +1,6 @@
 module.exports = {
   title: 'example',
-  display_title: 'example',
+  display_title: 'Gift for Maya M',
   SERVER_ROOT: 'http://localhost:4040',
   EVENTS_EXT: '/api/timemap_data/export_events/deeprows',
   ASSOCIATIONS_EXT: '/api/timemap_data/export_associations/deeprows',
@@ -22,6 +22,8 @@ module.exports = {
       USE_SOURCES: true,
       USE_COVER: false,
       USE_SEARCH:true,
+      // USE_CATEGORIES:true,
+      USE_CATEGORIES:true,
       GRAPH_NONLOCATED: false,
       HIGHLIGHT_GROUPS: false
     }
