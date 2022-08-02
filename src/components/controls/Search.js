@@ -31,7 +31,8 @@ class Search extends React.Component {
   render() {
     let searchResults;
 
-    const searchAttributes = ["description", "location", "category", "date"];
+    const searchAttributes = ["description", "location"];
+    // const searchAttributes = ["description", "location", "category", "date"];
 
     if (!this.props.queryString) {
       searchResults = [];
@@ -43,6 +44,11 @@ class Search extends React.Component {
             .includes(this.props.queryString.toLowerCase())
         )
       );
+
+      // this code works well
+      // searchResults = this.props.events.filter((event)=>{
+      //   return event["description"].toLowerCase().includes(this.props.queryString.toLowerCase())
+      // });
     }
 
     return (
@@ -65,6 +71,7 @@ class Search extends React.Component {
               className="search-bar-input"
               onChange={this.updateSearchQuery}
               type="text"
+              placeholder="Search for location and description..."
             />
             <i
               id="close-search-overlay"
