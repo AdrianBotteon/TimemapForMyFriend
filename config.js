@@ -22,7 +22,6 @@ module.exports = {
       USE_SOURCES: true,
       USE_COVER: false,
       USE_SEARCH:true,
-      // USE_CATEGORIES:true,
       USE_CATEGORIES:true,
       GRAPH_NONLOCATED: false,
       HIGHLIGHT_GROUPS: false
