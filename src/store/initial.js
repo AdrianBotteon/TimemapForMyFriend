@@ -105,9 +105,10 @@ const initial = {
       isShowingSites: true,
     },
     cover: {
-      title: "project title",
+      title: "Time map",
       description:
-        "A description of the project goes here.\n\nThis description may contain markdown.\n\n# This is a large title, for example.\n\n## Whereas this is a slightly smaller title.\n\nCheck out docs/custom-covers.md in the [Timemap GitHub repo](https://github.com/forensic-architecture/timemap) for more information around how to specify custom covers.",
+        "Exploration, monitoring and classification of incidents in time and space.\n\nMaya and Adrian(FullStack Web Developer).\n\n# RECORD ANY EVENTS YOU WANT",
+        // "A description of the project goes here.\n\nThis description may contain markdown.\n\n# This is a large title, for example.\n\n## Whereas this is a slightly smaller title.\n\nCheck out docs/custom-covers.md in the [Timemap GitHub repo](https://github.com/forensic-architecture/timemap) for more information around how to specify custom covers.",
       exploreButton: "EXPLORE",
     },
     toolbar: {
