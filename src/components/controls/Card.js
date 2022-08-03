@@ -61,6 +61,7 @@ export const generateCardLayout = {
         source.paths.map((p) => ({
           kind: "media",
           title: "Media",
+          // value: [{ src: p, title: "SOURCES" }],
           value: [{ src: p, title: null }],
         })),
       ]),
@@ -102,6 +103,7 @@ export const Card = ({
       case "media":
         return (
           <div className="card-cell">
+            <h4>SOURCE</h4>
             {field.value.map((media, idx) => {
               return renderMedia({ media, idx });
             })}

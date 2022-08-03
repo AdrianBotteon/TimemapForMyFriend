@@ -108,7 +108,7 @@ const initial = {
       title: "Time map",
       description:
         "Exploration, monitoring and classification of incidents in time and space.\n\nMaya and Adrian(FullStack Web Developer).\n\n# RECORD ANY EVENTS YOU WANT",
-        // "A description of the project goes here.\n\nThis description may contain markdown.\n\n# This is a large title, for example.\n\n## Whereas this is a slightly smaller title.\n\nCheck out docs/custom-covers.md in the [Timemap GitHub repo](https://github.com/forensic-architecture/timemap) for more information around how to specify custom covers.",
+      // "A description of the project goes here.\n\nThis description may contain markdown.\n\n# This is a large title, for example.\n\n## Whereas this is a slightly smaller title.\n\nCheck out docs/custom-covers.md in the [Timemap GitHub repo](https://github.com/forensic-architecture/timemap) for more information around how to specify custom covers.",
       exploreButton: "EXPLORE",
     },
     toolbar: {
@@ -179,7 +179,7 @@ const initial = {
     },
     card: {
       layout: {
-        template: "basic",
+        template: "sourced",
       },
     },
     coloring: {
@@ -198,7 +198,7 @@ const initial = {
     USE_COVER: false,
     USE_ASSOCIATIONS: false,
     USE_SITES: false,
-    USE_SOURCES: false,
+    USE_SOURCES: true,
     USE_REGIONS: false,
     GRAPH_NONLOCATED: false,
     HIGHLIGHT_GROUPS: false,

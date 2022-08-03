@@ -62,8 +62,9 @@ class CardStack extends React.Component {
     this.refs = [];
 
     const generateTemplate =
+      // generateCardLayout["sourced"];
       generateCardLayout[this.props.cardUI.layout.template];
-
+      
     return events.map((event, idx) => {
       const thisRef = React.createRef();
       this.refs[idx] = thisRef;
@@ -74,7 +75,6 @@ class CardStack extends React.Component {
         coloringSet: this.props.coloringSet,
         getFilterIdxFromColorSet,
       });
-
       return (
         <Card
           key={hash(content)}
