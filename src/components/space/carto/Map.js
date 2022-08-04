@@ -398,7 +398,8 @@ class Map extends React.Component {
    * the <g/> div.
    */
   styleLocation(location) {
-    return [null, null];
+    return [this.props.app.marks, null];
+    // return [null, null];
   }
 
   styleCluster(cluster) {
@@ -419,13 +420,14 @@ class Map extends React.Component {
       this.props.domain.locations
     );
 
+    // console.log(this.props.app.marks.map(mark=>mark.title))
     return (
       <Events
         svg={this.svgRef.current}
         events={this.props.domain.events}
         locations={filteredLocations}
         // locations={this.props.domain.locations}
-        styleLocation={this.styleLocation}
+        styleLocation={this.props.app.marks}
         categories={this.props.domain.categories}
         projectPoint={this.projectPoint}
         selected={this.props.app.selected}
@@ -570,6 +572,7 @@ function mapStateToProps(state) {
         isShowingSites: state.app.flags.isShowingSites,
         isFetchingDomain: state.app.flags.isFetchingDomain,
       },
+      marks: state.app.marks
     },
     ui: {
       tiles: selectors.getTiles(state),

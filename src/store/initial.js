@@ -203,6 +203,9 @@ const initial = {
     GRAPH_NONLOCATED: false,
     HIGHLIGHT_GROUPS: false,
   },
+  marks: {
+    
+  }
 };
 
 let appStore;

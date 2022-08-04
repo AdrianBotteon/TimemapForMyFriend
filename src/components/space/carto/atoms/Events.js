@@ -76,8 +76,30 @@ function MapEvents({
       }
     }
 
-    const customStyles = styleLocation ? styleLocation(location) : null;
-    const extraRender = () => <>{customStyles[1]}</>;
+    // const customStyles = styleLocation ? styleLocation(location) : null;
+
+    const extraRender = () => {
+      console.log("extraRender")
+      const colorPercentages = calculateColorPercentages([location], coloringSet);
+  
+      const styles = {
+        stroke: "#ffff00",
+        strokeWidth: 0,
+        fillOpacity: narrative ? 1 : calcOpacity(location.events.length),
+      };
+  
+      return (
+        <ColoredMarkers
+          radius={eventRadius}
+          colorPercentMap={zipColorsToPercentages(filterColors, colorPercentages)}
+          styles={{
+            ...styles,
+          }}
+          className="location-event-marker"
+        />
+      );
+    };
+    // const extraRender = () => <>{customStyles[1]}</>;
 
     const isSelected = selected.reduce((acc, event) => {
       return (

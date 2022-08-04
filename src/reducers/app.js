@@ -28,6 +28,7 @@ import {
   SET_LOADING,
   SET_NOT_LOADING,
   SET_INITIAL_CATEGORIES,
+  SET_INITIAL_MARKS,
   SET_INITIAL_SHAPES,
   UPDATE_SEARCH_QUERY,
 } from "../actions";
@@ -287,6 +288,19 @@ function setInitialCategories(appState, action) {
   };
 }
 
+function setInitialMarks(appState, action) {
+  console.log("action", action)
+  const marks = action.values.reduce((acc, val) => {
+    if (val.mode === "MARK") acc.push(val);
+    return acc;
+  }, []);
+
+  return {
+    ...appState,
+    marks: marks
+  };
+}
+
 function setInitialShapes(appState, action) {
   const shapeIds = action.values.map((sh) => sh.id);
   return {
@@ -356,6 +370,8 @@ function app(appState = initial.app, action) {
       return setNotLoading(appState);
     case SET_INITIAL_CATEGORIES:
       return setInitialCategories(appState, action);
+    case SET_INITIAL_MARKS:
+      return setInitialMarks(appState, action);
     case SET_INITIAL_SHAPES:
       return setInitialShapes(appState, action);
     case UPDATE_SEARCH_QUERY:
