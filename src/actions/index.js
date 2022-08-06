@@ -121,7 +121,7 @@ export function fetchDomain() {
         }
         dispatch(toggleFetchingDomain());
         dispatch(setInitialCategories(result.associations));
-        dispatch(setInitialMarks(result.associations.filter(ass=>ass.mode === "MARK")));
+        dispatch(setInitialMarks(result.associations.filter(ass=>ass.mode === "MARKER")));
         dispatch(setInitialShapes(result.shapes));
         return result;
       })
