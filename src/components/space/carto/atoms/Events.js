@@ -23,12 +23,8 @@ function MapEvents({
   coloringSet,
   filterColors,
   features,
-  markers
 }) {
-  console.log(markers, locations)
-
   function handleEventSelect(e, location) {
-    console.log("clicked an event")
     const events = e.shiftKey
       ? selected.concat(location.events)
       : location.events;
@@ -36,19 +32,17 @@ function MapEvents({
   }
 
   function renderLocationSlicesByAssociation(location) {
-    console.log('renderLocationSlicesByAssociation')
     const colorPercentages = calculateColorPercentages([location], coloringSet);
 
     const styles = {
       stroke: colors.darkBackground,
       strokeWidth: 0,
-      // fillOpacity: 1,
       fillOpacity: narrative ? 1 : calcOpacity(location.events.length),
     };
+
     return (
       <ColoredMarkers
         radius={eventRadius}
-        // colorPercentMap={zipColorsToPercentages(filterColors, 1)}
         colorPercentMap={zipColorsToPercentages(filterColors, colorPercentages)}
         styles={{
           ...styles,
@@ -59,7 +53,6 @@ function MapEvents({
   }
 
   function renderLocation(location) {
-    console.log('renderLocation')
     /**
     {
       events: [...],
@@ -74,7 +67,6 @@ function MapEvents({
     // in narrative mode, only render events in narrative
     // TODO: move this to a selector
     if (narrative) {
-      console.log("narrative")
       const { steps } = narrative;
       const onlyIfInNarrative = (e) => steps.map((s) => s.id).includes(e.id);
       const eventsInNarrative = location.events.filter(onlyIfInNarrative);
@@ -85,11 +77,7 @@ function MapEvents({
     }
 
     const customStyles = styleLocation ? styleLocation(location) : null;
-    // console.log(customStyles)
     const extraRender = () => <>{customStyles[1]}</>;
-    // const extraRender = () => 
-    //   <ColoredMarkers radius={eventRadius} colorPercentMap ="#009999" styles={customStyles[1]}/>
-
 
     const isSelected = selected.reduce((acc, event) => {
       return (
@@ -99,7 +87,6 @@ function MapEvents({
       );
     }, false);
 
-
     return (
       <svg key={hash(location)}>
         <g
@@ -108,7 +95,7 @@ function MapEvents({
           onClick={(e) => handleEventSelect(e, location)}
         >
           {renderLocationSlicesByAssociation(location)}
-          {extraRender ? extraRender(location) : null}
+          {extraRender ? extraRender() : null}
           <circle
             className="event-hover"
             display={isSelected ? "auto" : "none"}
@@ -124,13 +111,11 @@ function MapEvents({
   }
 
   return (
-    <div>
-      <Portal node={svg}>
-        <svg>
-          <g className="event-locations">{locations.map(renderLocation)}</g>
-        </svg>
-      </Portal>
-    </div>
+    <Portal node={svg}>
+      <svg>
+        <g className="event-locations">{locations.map(renderLocation)}</g>
+      </svg>
+    </Portal>
   );
 }
 

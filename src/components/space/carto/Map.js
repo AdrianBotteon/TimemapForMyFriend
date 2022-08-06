@@ -29,7 +29,6 @@ import {
   calcClusterSize,
 } from "../../../common/utilities";
 
-
 // NB: important constants for map, TODO: make statics
 // Note: Base map is OpenStreetMaps by default; can choose another base map
 const supportedMapboxMap = ["streets", "satellite"];
@@ -398,11 +397,6 @@ class Map extends React.Component {
    * the <g/> div.
    */
   styleLocation(location) {
-    // return [this.props.app.marks, {
-    //   stroke: "#009999",
-    //   strokeWidth: 0,
-    //   fillOpacity: 1
-    // }];
     return [null, null];
   }
 
@@ -424,13 +418,10 @@ class Map extends React.Component {
       this.props.domain.locations
     );
 
-    console.log("marks", this.props.app.marks)
     return (
       <Events
         svg={this.svgRef.current}
-        events={this.props.domain}
-        // events={this.props.domain.events}
-        markers={this.props.app.marks}
+        events={this.props.domain.events}
         locations={filteredLocations}
         // locations={this.props.domain.locations}
         styleLocation={this.styleLocation}
@@ -515,51 +506,6 @@ class Map extends React.Component {
         <DefsMarkers />
       </Portal>
     );
-    // const individualClusters = this.state.clusters.filter(
-    //   (cl) => !cl.properties.cluster
-    // );
-    // const filteredLocations = mapClustersToLocations(
-    //   individualClusters,
-    //   this.props.domain.locations
-    // );
-
-    // console.log(this.props.domain.locations)
-    // console.log(this.props.domain.find(el=>el.includes("MARK")))
-    //.map(event=>event.includes("MARK"))))
-    // console.log(this.props.domain.locations.includes())
-    // const searchAttributes = ["description", "location"];
-    // let searchResults;
-    // searchResults = this.props.domain.locations.map(loc => loc.events.filter(e =>
-    //   e.associations.map(ass => ass.mode === "MARK")
-    // ))
-    // searchResults = this.props.domain.locations.filter((event) =>
-    //     searchAttributes.some((attribute) =>
-    //       event[attribute]
-    //         .toLowerCase()
-    //         .includes(this.props.queryString.toLowerCase())
-    //     )
-    //   );
-    //   console.log(searchResults)
-    // return (
-    //   <Events
-    //     svg={this.svgRef.current}
-    //     events={this.props.domain}
-    //     // events={this.props.domain.events}
-    //     locations={filteredLocations}
-    //     // locations={this.props.domain.locations}
-    //     styleLocation={this.props.app.marks}
-    //     categories={this.props.domain.categories}
-    //     projectPoint={this.projectPoint}
-    //     selected={this.props.app.selected}
-    //     narrative={this.props.app.narrative}
-    //     onSelect={this.props.methods.onSelect}
-    //     getCategoryColor={this.props.methods.getCategoryColor}
-    //     eventRadius={this.props.ui.eventRadius}
-    //     coloringSet={this.props.app.coloringSet}
-    //     filterColors={this.props.ui.filterColors}
-    //     features={this.props.features}
-    //   />
-    // );
   }
 
   render() {
@@ -600,7 +546,6 @@ class Map extends React.Component {
   }
 }
 
-
 function mapStateToProps(state) {
   return {
     domain: {
@@ -624,7 +569,6 @@ function mapStateToProps(state) {
         isShowingSites: state.app.flags.isShowingSites,
         isFetchingDomain: state.app.flags.isFetchingDomain,
       },
-      marks: state.app.marks
     },
     ui: {
       tiles: selectors.getTiles(state),
