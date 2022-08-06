@@ -503,7 +503,11 @@ class Map extends React.Component {
   renderMarkers() {
     return (
       <Portal node={this.svgRef.current}>
-        <DefsMarkers />
+        <DefsMarkers 
+          markers = {this.props.app.markers}
+          projectPoint={this.projectPoint}
+          narrative={this.props.app.narrative}
+        />
       </Portal>
     );
   }
@@ -569,6 +573,7 @@ function mapStateToProps(state) {
         isShowingSites: state.app.flags.isShowingSites,
         isFetchingDomain: state.app.flags.isFetchingDomain,
       },
+      markers: state.app.markers
     },
     ui: {
       tiles: selectors.getTiles(state),
