@@ -12,7 +12,7 @@ const MapDefsMarkers = () => (
         markerHeight="6"
         orient="auto"
       >
-        <path d="M0,3v-3l6,3l-6,3z" style={{ fill: "red" }} />
+        <path d="M0,3v-3l6,3l-6,3z" style={{ fill: "blue" }} />
       </marker>
       <marker
         id="arrow-off"

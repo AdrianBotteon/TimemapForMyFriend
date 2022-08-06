@@ -202,6 +202,7 @@ const initial = {
     USE_REGIONS: false,
     GRAPH_NONLOCATED: false,
     HIGHLIGHT_GROUPS: false,
+    USE_CATEGORIES :true,
   },
   marks: {
     

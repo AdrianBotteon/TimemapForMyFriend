@@ -110,10 +110,8 @@ export function fetchDomain() {
           regions: response[4],
           shapes: response[5],
           notifications,
-          marks : response[1].filter((ass)=>ass.mode === "MARK")
         };
         console.log(response)
-        console.log(result.marks)
         if (
           Object.values(result).some((resp) => resp.hasOwnProperty("error"))
         ) {
@@ -123,7 +121,7 @@ export function fetchDomain() {
         }
         dispatch(toggleFetchingDomain());
         dispatch(setInitialCategories(result.associations));
-        dispatch(setInitialMarks(result.marks));
+        dispatch(setInitialMarks(result.associations.filter(ass=>ass.mode === "MARK")));
         dispatch(setInitialShapes(result.shapes));
         return result;
       })
@@ -248,10 +246,8 @@ export function setInitialCategories(values) {
     values,
   };
 }
-
 export const SET_INITIAL_MARKS = "SET_INITIAL_MARKS";
 export function setInitialMarks(values) {
-  console.log("setInitialMarksdispatch",values)
   return {
     type: SET_INITIAL_MARKS,
     values,

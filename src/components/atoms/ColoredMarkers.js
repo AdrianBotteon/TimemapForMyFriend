@@ -2,6 +2,7 @@ import React from "react";
 import { getCoordinatesForPercent } from "../../common/utilities";
 
 function ColoredMarkers({ radius, colorPercentMap, styles, className }) {
+  console.log("colorPercentMap", colorPercentMap) //red color ab
   let cumulativeAngleSweep = 0;
   const colors = Object.keys(colorPercentMap);
 
