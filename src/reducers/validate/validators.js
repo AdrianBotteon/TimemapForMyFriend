@@ -147,7 +147,8 @@ export function validateDomain(domain, features) {
 
   const duplicateAssociations = findDuplicateAssociations(domain.associations);
   // Duplicated associations
-  if (duplicateAssociations.length > 0) {
+  if (0) {
+  // if (duplicateAssociations.length > 0) {
     sanitizedDomain.notifications.push({
       message:
         "Associations are required to be unique. Ignoring duplicates for now.",
@@ -205,7 +206,8 @@ export function validateDomain(domain, features) {
   // Message the number of failed items in domain
   Object.keys(discardedDomain).forEach((disc) => {
     const len = discardedDomain[disc].length;
-    if (len) {
+    if (0) {
+    // if (len) {
       sanitizedDomain.notifications.push({
         message: `${len} invalid ${disc} not displayed.`,
         items: discardedDomain[disc],
