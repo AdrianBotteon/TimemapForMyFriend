@@ -24,8 +24,9 @@ const MapDefsMarkers = ({ markers, projectPoint, narrative }) => {
                   className={`location-event ${narrative ? "no-hover" : ""}`}
                   transform={`translate(${x}, ${y})`}
                 >
-                  <circle cx="0" cy="0" r="10" stroke="black" stroke-width="2" 
-                  fill= {marker.enddate>=today?"yellow":"none"} stroke-opacity="0.8" fill-opacity="0.8"/>
+                  {/* <circle cx="0" cy="0" r="10" stroke="black" stroke-width="2"  */}
+                  {/* fill= {marker.enddate>=today?"yellow":"none"} stroke-opacity="0.8" fill-opacity="0.8"/> */}
+                  <rect width="20" height="20"  stroke="blue" stroke-width="2" fill= {marker.enddate>=today?"yellow":"none"} fill-opacity="0.8" />
                 </g>
               </svg>
             )
