@@ -61,6 +61,7 @@ class CardStack extends React.Component {
     }
     this.refs = [];
 
+    console.log(this.props.cardUI.layout.template)
     const generateTemplate =
       // generateCardLayout["sourced"];
       generateCardLayout[this.props.cardUI.layout.template];
