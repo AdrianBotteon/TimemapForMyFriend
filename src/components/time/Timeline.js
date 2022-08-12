@@ -244,7 +244,7 @@ class Timeline extends React.Component {
         timerange: [newDomain0, newDomainF],
       },
       () => {
-        this.props.actions.updateTicks(15);
+        // this.props.actions.updateTicks(15);
         this.props.methods.onUpdateTimerange(this.state.timerange);
       }
     );
