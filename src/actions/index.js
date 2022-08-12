@@ -111,7 +111,6 @@ export function fetchDomain() {
           shapes: response[5],
           notifications,
         };
-        console.log(response)
         if (
           Object.values(result).some((resp) => resp.hasOwnProperty("error"))
         ) {
