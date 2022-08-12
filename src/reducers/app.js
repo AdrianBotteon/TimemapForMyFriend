@@ -289,7 +289,6 @@ function setInitialCategories(appState, action) {
 }
 
 function setInitialMarks(appState, action) {
-  console.log("action", action)
   const markers = action.values.reduce((acc, val) => {
     if (val.mode === "MARKER") acc.push(val);
     return acc;
