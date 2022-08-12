@@ -7,7 +7,7 @@ const TimelineHandles = ({ dims, onMoveTime }) => {
   return (
     <g className="time-controls-inline">
       <g
-        transform={`translate(${dims.marginLeft - 20}, ${handleOffset})`}
+        transform={`translate(${dims.marginLeft - 20}, ${handleOffset+50})`}
         onClick={() => onMoveTime("backwards")}
       >
         <circle r={size} />
@@ -19,7 +19,7 @@ const TimelineHandles = ({ dims, onMoveTime }) => {
       <g
         transform={`translate(${
           dims.width - dims.width_controls + 20
-        }, ${handleOffset})`}
+        }, ${handleOffset+50})`}
         onClick={() => onMoveTime("forward")}
       >
         <circle r={size} />
