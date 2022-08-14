@@ -567,3 +567,15 @@ export const isOdd = (num) => num % 2 !== 0;
 export function isEmptyObject(o) {
   return o == null || (typeof o === "object" && !Object.keys(o).length);
 }
+
+export function isValidHttpUrl(string) {
+  let url;
+
+  try {
+    url = new URL(string);
+  } catch (_) {
+    return false;
+  }
+
+  return url.protocol === "http:" || url.protocol === "https:";
+}

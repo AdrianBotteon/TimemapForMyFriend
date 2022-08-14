@@ -73,7 +73,8 @@ const CardButton = ({
   normalCursor,
 }) => (
   <Button
-    size={"small"}
+    size={"big"}
+    // size={"small"}
     backgroundColor={color}
     borderRadius={"12px"}
     primary={false}

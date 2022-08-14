@@ -57,11 +57,19 @@ export const generateCardLayout = {
           scaleFont: 1.1,
         },
       ],
+      [
+        {
+          kind: "button",
+          title: "Source",
+          // value: ` `,
+          value: ["Source1", "Source2"],
+          // scaleFont: 1.1,
+        },
+      ],
       ...event.sources.flatMap((source) => [
         source.paths.map((p) => ({
           kind: "media",
           title: "Media",
-          // value: [{ src: p, title: "SOURCES" }],
           value: [{ src: p, title: null }],
         })),
       ]),
@@ -103,7 +111,6 @@ export const Card = ({
       case "media":
         return (
           <div className="card-cell">
-            <h4>SOURCE</h4>
             {field.value.map((media, idx) => {
               return renderMedia({ media, idx });
             })}
