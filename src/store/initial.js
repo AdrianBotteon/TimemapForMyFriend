@@ -216,7 +216,9 @@ if (process.env.store) {
   appStore = initial;
 }
 
+
 // NB: config.js dates get implicitly converted to strings in mergeDeepLeft
+// appStore.app.timeline.range[0] = new Date("04/04/2014");
 appStore.app.timeline.range[0] = new Date(appStore.app.timeline.range[0]);
 appStore.app.timeline.range[1] = new Date(appStore.app.timeline.range[1]);
 appStore.app.flags.isIntropopup = !!appStore.app.intro;

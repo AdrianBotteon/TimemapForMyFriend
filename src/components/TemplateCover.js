@@ -157,6 +157,7 @@ class TemplateCover extends React.Component {
     return (
       <div className="default-cover-container">
         <div className={showing ? "cover-header" : "cover-header minimized"}>
+        {/* <div className={showing ? "cover-header" : "cover-header minimized"}> */}
           <a
             className="cover-logo-container"
             href="https://forensic-architecture.org"
@@ -167,9 +168,9 @@ class TemplateCover extends React.Component {
             {/*   alt="Forensic Architecture logo" */}
             {/* /> */}
           </a>
-          <a className="cover-logo-container" href="https://bellingcat.com">
+          {/* <a className="cover-logo-container" href="https://bellingcat.com">
             <img className="cover-logo" src={bcatlogo} alt="Bellingcat logo" />
-          </a>
+          </a> */}
         </div>
         <div className="cover-content">
           {this.props.cover.bgVideo ? (

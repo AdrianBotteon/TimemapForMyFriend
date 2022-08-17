@@ -278,6 +278,7 @@ class Timeline extends React.Component {
     const timeShift = (drag0 - dragNow) / 1000;
 
     const { range, rangeLimits } = this.props.app.timeline;
+
     let newDomain0 = timeSecond.offset(range[0], timeShift);
     let newDomainF = timeSecond.offset(range[1], timeShift);
 
@@ -388,6 +389,7 @@ class Timeline extends React.Component {
       >
         <Header
           title={title}
+          // from={"04/04/2011"}
           from={this.state.timerange[0]}
           to={this.state.timerange[1]}
           onClick={() => {
